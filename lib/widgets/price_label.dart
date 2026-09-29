@@ -9,7 +9,6 @@ class PriceLabel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Text(
       formatRupiah(harga),
       style: const TextStyle(

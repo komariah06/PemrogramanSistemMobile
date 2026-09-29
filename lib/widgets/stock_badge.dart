@@ -7,7 +7,6 @@ class StockBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     Color warna;
     if (status == 'Tersedia') {
       warna = Colors.green;

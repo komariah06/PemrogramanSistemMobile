@@ -7,7 +7,6 @@ class CategoryTag extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     Color warna;
     if (category == 'Elektronik') {
       warna = Colors.deepOrangeAccent;
