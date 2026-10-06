@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../models/product.dart';
 import '../widgets/product_card.dart';
+//langkah 1
+import 'product_detail_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -206,7 +208,8 @@ class _HomePageState extends State<HomePage> {
     ];
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Home')),
+      appBar: AppBar(
+        title: const Text('Home')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -253,6 +256,35 @@ class _HomePageState extends State<HomePage> {
                         favorites[product.id] =
                             !(favorites[product.id] ?? false);
                       });
+                    },
+                    //langkah 1
+                    onTap: () async {
+                      // langkah 3
+                      final jumlah = await Navigator.pushNamed(
+                        //lanhkah 2
+                        context,
+                        '/detail',
+                        arguments: product,
+                      );
+
+                      //langkah 3
+                      if (jumlah != null) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              '$jumlah ${product.name} ditambahkan ke keranjang',
+                            ),
+                            duration: const Duration(seconds: 3),
+                          ),
+                        );
+                      }
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) =>
+                      //         ProductDetailPage(product: product),
+                      //   ),
+                      // );
                     },
                   );
                 },
